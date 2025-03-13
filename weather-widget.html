@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Widget</title>
-    <link rel="stylesheet" href="weather-style.css">
+    <link rel="stylesheet" href="weather-styles.css">
 </head>
 <body>
     <div class="weather-container">
         <h2>Weather Forecast</h2>
-        <p id="location">Detecting location...</p>
-        <h3 id="temperature">--°C</h3>
-        <p id="weather-description">Loading...</p>
+        <p id="location">Fetching location...</p>
+        <p id="temperature">--°C</p>
+        <p id="condition">Fetching weather...</p>
     </div>
     <script src="weather-script.js"></script>
 </body>
 </html>
+
+// weather-styles.css
+.weather-container {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+}
