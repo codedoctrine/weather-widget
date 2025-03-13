@@ -1,31 +1,16 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const locationElement = document.getElementById("location");
-    const tempElement = document.getElementById("temperature");
-    const descElement = document.getElementById("weather-description");
+const temperatureElement = document.getElementById("temperature");
+const conditionElement = document.getElementById("condition");
+const locationElement = document.getElementById("location");
 
-    function estimateWeather() {
-        const date = new Date();
-        const timezoneOffset = date.getTimezoneOffset();
-        
-        // Rough estimation of region based on timezone
-        if (timezoneOffset < -600) {
-            locationElement.textContent = "Pacific Region";
-            tempElement.textContent = "25°C";
-            descElement.textContent = "Sunny";
-        } else if (timezoneOffset < -300) {
-            locationElement.textContent = "Americas";
-            tempElement.textContent = "15°C";
-            descElement.textContent = "Cloudy";
-        } else if (timezoneOffset < 0) {
-            locationElement.textContent = "Europe";
-            tempElement.textContent = "10°C";
-            descElement.textContent = "Rainy";
-        } else {
-            locationElement.textContent = "Asia";
-            tempElement.textContent = "30°C";
-            descElement.textContent = "Humid";
-        }
-    }
+function getRandomTemperature() {
+    return (Math.random() * (35 - 5) + 5).toFixed(1);
+}
 
-    estimateWeather();
-});
+function getRandomCondition() {
+    const conditions = ["Sunny", "Cloudy", "Rainy", "Windy", "Stormy"];
+    return conditions[Math.floor(Math.random() * conditions.length)];
+}
+
+locationElement.textContent = "Your Location";
+temperatureElement.textContent = getRandomTemperature() + "°C";
+conditionElement.textContent = getRandomCondition();
