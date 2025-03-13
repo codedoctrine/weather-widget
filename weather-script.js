@@ -1,19 +1,18 @@
-const temperatureElement = document.getElementById("temperature");
-const locationElement = document.getElementById("location");
-const weatherIcon = document.getElementById("weather-icon");
+function updateWeather() {
+    const temperature = Math.round(Math.random() * 10 + 25); // Fake temp between 25-35°C
+    const conditions = ["Clear", "Cloudy", "Rain", "Snow", "Storm"];
+    const condition = conditions[Math.floor(Math.random() * conditions.length)];
 
-function getRandomWeather() {
-    const weatherData = [
-        { condition: "Sunny", icon: "☀️" },
-        { condition: "Cloudy", icon: "☁️" },
-        { condition: "Rainy", icon: "🌧️" },
-        { condition: "Windy", icon: "💨" },
-        { condition: "Stormy", icon: "⛈️" }
-    ];
-    return weatherData[Math.floor(Math.random() * weatherData.length)];
+    const weatherIcons = {
+        "Clear": "☀️",
+        "Cloudy": "☁️",
+        "Rain": "🌧️",
+        "Snow": "❄️",
+        "Storm": "⛈️"
+    };
+
+    document.getElementById("temperature").innerText = `${temperature}°C`;
+    document.getElementById("weather-icon").innerText = weatherIcons[condition];
 }
 
-const weather = getRandomWeather();
-locationElement.textContent = "Your Location";
-temperatureElement.textContent = (Math.random() * (35 - 5) + 5).toFixed(1) + "°C";
-weatherIcon.textContent = weather.icon;
+updateWeather();
